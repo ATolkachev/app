@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    
+    environment {
+        BUILD = ${env.GIT_BRANCH.replace('/','_')}_${env.BUILD_ID}
+    }
 
     stages {
         stage('Hello') {
@@ -48,7 +52,7 @@ pipeline {
         stage('Dockerfile') {
             steps {
                 script {
-                    sh "docker build -t test-app:${env.GIT_BRANCH.replace('/','_')}_${env.BUILD_ID} ."
+                    sh "docker build -t test-app:${env.BUILD} ."
                 }
             }
         }
