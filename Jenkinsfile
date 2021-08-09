@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        BUILD = ${env.GIT_BRANCH.replace('/','_')}_${env.BUILD_ID}
+        BUILD = "${env.GIT_BRANCH.replace('/','_')}_${env.BUILD_ID}"
     }
 
     stages {
