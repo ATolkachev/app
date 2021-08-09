@@ -45,6 +45,13 @@ pipeline {
                 }
             }
         }
+        stage('Dockerfile') {
+            steps {
+                script {
+                    sh "docker build -t test-app:${env.BUILD_ID} ."
+                }
+            }
+        }
     }
 }
 
