@@ -48,7 +48,7 @@ pipeline {
         stage('Dockerfile') {
             steps {
                 script {
-                    sh "docker build -t test-app:${env.GIT_BRANCH.replace('*/','')}_${env.BUILD_ID} ."
+                    sh "docker build -t test-app:${env.GIT_BRANCH.replace('/','')}_${env.BUILD_ID} ."
                 }
             }
         }
